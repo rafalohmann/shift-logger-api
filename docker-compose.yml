@@ -1,0 +1,36 @@
+version: "3.8"
+
+services:
+  # Database
+  db:
+    image: mysql:8
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: p422w0rD
+      MYSQL_DATABASE: shiftlog
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: 4DMinP422WORd
+    ports:
+      - "3306:3306"
+    networks:
+      - db-network
+  # adminer
+  adminer:
+    depends_on:
+      - db
+    image: adminer
+    restart: always
+    ports:
+      - "8090:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+      ADMINER_DESIGN: dracula
+    networks:
+      - db-network
+networks:
+  db-network:
+volumes:
+  db_data:
