@@ -1,15 +1,22 @@
 import { Router, Request, Response } from 'express';
+import { query, validationResult } from 'express-validator';
 import { Log } from '../models';
-import { wrap, error, validateQuery } from '../utils';
+import { wrap, error } from '../utils';
 
 const router = Router();
 const debug = require('debug')('ts-express:log.controller');
 
 router.get(
     '/',
-    validateQuery({ page: 'required', pageSize: 'required' }),
+    query('page').isInt(),
+    query('pageSize').isInt(),
     wrap(async (req: Request, res: Response) => {
         debug('[GET] /log', req.query);
+
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(422).json({ errors: errors.array() });
+        }
 
         const { page, pageSize } = req.query;
 
@@ -18,7 +25,7 @@ router.get(
                 page,
                 pageSize,
             });
-            res.json({
+            return res.json({
                 data,
                 pagination,
             });
