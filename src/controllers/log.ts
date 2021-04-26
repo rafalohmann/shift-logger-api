@@ -8,8 +8,8 @@ const debug = require('debug')('ts-express:log.controller');
 
 router.get(
     '/',
-    query('page').isInt(),
-    query('pageSize').isInt(),
+    query('page').not().isEmpty().isInt({ min: 1 }),
+    query('pageSize').not().isEmpty().isInt({ min: 1 }),
     wrap(async (req: Request, res: Response) => {
         debug('[GET] /log', req.query);
 

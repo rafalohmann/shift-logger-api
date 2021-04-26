@@ -4,6 +4,7 @@
 import * as express from 'express';
 import * as logger from 'morgan';
 import * as lusca from 'lusca';
+import * as cors from 'cors';
 import { Err } from './interfaces';
 
 const debug = require('debug')('ts-express:app');
@@ -30,6 +31,9 @@ app.use(
         skip: () => isTest,
     }),
 );
+
+app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(lusca.xframe('SAMEORIGIN'));
