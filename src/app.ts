@@ -48,7 +48,8 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
 });
 
 // error handler
-app.use((err: Err, req: express.Request, res: express.Response) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+app.use((err: Err, req: express.Request, res: express.Response, _next: express.NextFunction) => {
     debug(err);
 
     // set locals, only providing error in development
