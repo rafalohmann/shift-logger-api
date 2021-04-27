@@ -3,6 +3,6 @@ import { Router } from 'express';
 const router = Router();
 
 router.use('/', require('./controllers/home'));
-router.use('/log', require('./controllers/log'));
+router.use('/api/logs', require('./controllers/logs'));
 
 module.exports = router;

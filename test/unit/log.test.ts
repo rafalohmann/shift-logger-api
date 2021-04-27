@@ -5,12 +5,12 @@ import chaiHttp = require('chai-http');
 
 chai.use(chaiHttp);
 
-describe('GET /log', () => {
+describe('GET /logs', () => {
     it('should GET paginated log', () => {
         const pageSize = 5;
         return chai
             .request(app)
-            .get('/log')
+            .get('/api/logs')
             .query({ page: 1, pageSize })
             .then((res) => {
                 chai.expect(res.status).to.eql(200);

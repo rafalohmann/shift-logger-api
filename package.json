@@ -2,11 +2,11 @@
   "name": "shift-logger-api",
   "version": "0.1.0",
   "description": "API for a simple \"Shift Log\" management system",
-  "main": "bin/www",
+  "main": "src/index.ts",
   "scripts": {
     "start": "npm run build && npm run serve",
     "build": "npm run build-ts && npm run lint",
-    "serve": "cross-env DEBUG=ts-express:* nodemon bin/www",
+    "serve": "cross-env DEBUG=ts-express:* nodemon src/index.ts",
     "build-ts": "tsc -p src",
     "lint": "eslint src/**",
     "test": "cross-env NODE_ENV=test TS_NODE_PROJECT=test ts-mocha -p src/tsconfig.json test/unit/**/*.test.ts",

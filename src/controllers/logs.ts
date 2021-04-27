@@ -18,7 +18,7 @@ router.get(
     query('page').notEmpty().isInt({ min: 1 }),
     query('pageSize').notEmpty().isInt({ min: 1 }),
     wrap(async (req: Request, res: Response) => {
-        debug('[GET] /log', req.query);
+        debug('[GET] /logs', req.query);
 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -46,7 +46,7 @@ router.get(
     '/:id',
     param('id').notEmpty().isInt({ min: 1 }),
     wrap(async (req: Request, res: Response) => {
-        debug('[GET] /log/:id', req.params);
+        debug('[GET] /logs/:id', req.params);
 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -73,7 +73,7 @@ router.post(
     body('operator').notEmpty().isString().isLength({ max: 255 }),
     body('comment').notEmpty().isString().isLength({ max: 65535 }),
     wrap(async (req: Request, res: Response) => {
-        debug('[POST] /log', req.body);
+        debug('[POST] /logs', req.body);
 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -104,7 +104,7 @@ router.put(
     body('operator').notEmpty().isString().isLength({ max: 255 }),
     body('comment').notEmpty().isString().isLength({ max: 65535 }),
     wrap(async (req: Request, res: Response) => {
-        debug('[PUT] /log/:id', req.body);
+        debug('[PUT] /logs/:id', req.body);
 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {
@@ -138,7 +138,7 @@ router.delete(
     '/:id',
     param('id').notEmpty().isInt({ min: 1 }),
     wrap(async (req: Request, res: Response) => {
-        debug('[DELETE] /log/:id', req.body);
+        debug('[DELETE] /logs/:id', req.body);
 
         const errors = validationResult(req);
         if (!errors.isEmpty()) {

@@ -9,7 +9,7 @@ const app = require('../dist/app');
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val) {
+function normalizePort(val: any) {
     const port = parseInt(val, 10);
 
     if (Number.isNaN(port)) {
@@ -35,7 +35,7 @@ const port = normalizePort(process.env.PORT || '3000');
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function onError(error: any) {
     if (error.syscall !== 'listen') {
         throw error;
     }
