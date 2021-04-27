@@ -23,7 +23,7 @@
   "author": "Rafael Lohmann",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/rafalohmann/shift-logger-api/Logs"
+    "url": "https://github.com/rafalohmann/shift-logger-api/Log"
   },
   "dependencies": {
     "bookshelf": "^1.2.0",
@@ -34,6 +34,7 @@
     "express-validator": "^6.10.1",
     "knex": "^0.95.4",
     "lusca": "^1.7.0",
+    "moment": "^2.29.1",
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5"
   },

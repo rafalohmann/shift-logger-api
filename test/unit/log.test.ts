@@ -6,7 +6,7 @@ import chaiHttp = require('chai-http');
 chai.use(chaiHttp);
 
 describe('GET /log', () => {
-    it('should GET paginated logs', () => {
+    it('should GET paginated log', () => {
         const pageSize = 5;
         return chai
             .request(app)
